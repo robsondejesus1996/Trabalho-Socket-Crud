@@ -97,4 +97,50 @@ public class Controle {
         return "DEPARTAMENTO NÃO ENCONTADO!";
     }
 
+    public String excluirPessoa(String cpf) {
+        for (int i = 0; i < dadosPa.size(); i++) {
+            System.out.println("DELETAR PESSOA: " + dadosPa.get(i).getCpf());
+            if (dadosPa.get(i).getCpf().equals(cpf)) {
+                dadosPa.remove(dadosPa.get(i));
+                return "PESSOA EXCLUÍDA COM SUCESSO!";
+            }
+        }
+        return "ERRO DE EXCLUSÃO PESSOA!";
+    }
+
+    public String excluirDepartamento(String matricula) {
+        for (int i = 0; i < dadosDep.size(); i++) {
+            System.out.println("DELETAR DEPARTAMENTO: " + dadosDep.get(i).getMatricula());
+            if (dadosDep.get(i).getMatricula().equals(matricula)) {
+                dadosDep.remove(dadosDep.get(i));
+                return "DEPARTAMENTO EXCLUÍDO COM SUCESSO!";
+            }
+        }
+        return "ERRO DE EXCLUSÃO DEPARTAMENTO!";
+    }
+
+    public String listarPessoas() {
+        String pessoas = "";
+
+        for (var pessoa : dadosPa) {
+            pessoas += "NOME COMPLETO: " + pessoa.getNome()
+                    + " CPF: " + pessoa.getCpf()
+                    + " ENDERECO: " + pessoa.getEndereco()
+                    + "DEPARTAMENTO: " + pessoa.getDepartamento()
+                    + " || ";
+        }
+        return pessoas;
+    }
+
+    public String listarDepartamentos() {
+        String departamentos = "";
+        for (var departamento : dadosDep) {
+            departamentos += "NOME COMPLETO: " + departamento.getNome()
+                    + " MATRICULA: " + departamento.getMatricula()
+                    + " ENDERECO: " + departamento.getEndereco()
+                    + " || ";
+        }
+        return departamentos;
+    }
+
 }

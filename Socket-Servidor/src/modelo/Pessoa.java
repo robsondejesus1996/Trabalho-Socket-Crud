@@ -10,6 +10,7 @@ package modelo;
  * @author Robson de Jesus
  */
 public class Pessoa {
+
     private String cpf;
     private String nome;
     private String endereco;
@@ -46,7 +47,6 @@ public class Pessoa {
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
     }
-    
 
     @Override
     public String toString() {
