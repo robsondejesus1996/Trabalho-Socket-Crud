@@ -34,16 +34,16 @@ public class Clientes {
 
     public static void sendData(String msg) throws IOException {
         socket = new Socket(address, porta);
-        PrintWriter pr = new PrintWriter(socket.getOutputStream());
-        pr.println(msg);
-        pr.flush();
+        PrintWriter escrever = new PrintWriter(socket.getOutputStream());
+        escrever.println(msg);
+        escrever.flush();
     }
 
     public static void receiveData() throws IOException {
         InputStreamReader inpput = new InputStreamReader(socket.getInputStream());
         BufferedReader buffer = new BufferedReader(inpput);
         String dados = buffer.readLine();
-        System.out.println("Server: " + dados);
+        System.out.println("MENSAGEM SERVIDOR: " + dados);
     }
 
     public static void opcoes() throws IOException {
@@ -57,14 +57,16 @@ public class Clientes {
         entrada = new Scanner(System.in);
         int operacao = entrada.nextInt();
 
-        String[] operacoes = {"inserir", "atualizar", "buscar", "deletar", "listar"};
-        System.out.println("Deseja " + operacoes[operacao - 1] + ": "
-                + "\n1 - Pessoa"
-                + "\n2 - Empresa");
+        String[] operacoes = {"INCLUIR", "ATUALIZAR", "BUSCAR", "EXCLUIR", "LISTAR"};
+        System.out.println("INFORME O MODELO QUE DESEJA " + operacoes[operacao - 1] + ": "
+                + "\n1 - PESSOA"
+                + "\n2 - DEPARTAMENTO");
         int modelo = entrada.nextInt();
 
-        controleP = new PessoaControle();
-        controleDep = new DepartamentoControle();
+        
+        controleP = PessoaControle.getInstance();
+        
+        controleDep = DepartamentoControle.getInstance();
 
         String mensagem = "";
         switch (operacao) {

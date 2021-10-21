@@ -10,6 +10,18 @@ import java.util.Scanner;
  * @author Robson de Jesus
  */
 public class DepartamentoControle {
+    
+    private DepartamentoControle(){
+        
+    }
+    private static DepartamentoControle instance;
+    
+    public synchronized static DepartamentoControle getInstance(){
+        if(instance == null){
+            instance = new DepartamentoControle();
+        }
+        return instance;
+    }
 
     Departamento empresa;
     Conversao utils;
@@ -18,7 +30,7 @@ public class DepartamentoControle {
 
     public String departamentoInserir() throws IOException {
         empresa = new Departamento();
-        utils = new Conversao();
+        utils = Conversao.getInstance();
         in = new Scanner(System.in);
 
         System.out.println("INFORME O NOME DO DEPARTAMENTO: ");
@@ -49,7 +61,7 @@ public class DepartamentoControle {
 
     public String departamentoAtualizar() {
         empresa = new Departamento();
-        utils = new Conversao();
+        utils = Conversao.getInstance();
         in = new Scanner(System.in);
 
         System.out.println("INFORME A MATRICULA DO DEPARTAMENTO:  ");

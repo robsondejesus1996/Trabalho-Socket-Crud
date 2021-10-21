@@ -9,6 +9,18 @@ import modelo.Pessoa;
  */
 public class Conversao {
 
+    private Conversao() {
+
+    }
+    private static Conversao instance;
+
+    public synchronized static Conversao getInstance() {
+        if (instance == null) {
+            instance = new Conversao();
+        }
+        return instance;
+    }
+
     public String insercao(String variavel, int tamanho) {
         if (variavel.length() > tamanho) {
             variavel = variavel.substring(0, tamanho);
@@ -52,12 +64,11 @@ public class Conversao {
 //        String cpfPessoa = msg.substring(221, 232);
 //        empresa.getPessoas().add(reverteConversao(cpfPessoa));
 //        System.out.println("\ncpg: " +empresa.getPessoas());
-
         return dep;
     }
 
     public String reverteConversao(String variavel) {
         return variavel.replaceAll("\\*", " ").trim();
     }
-    
+
 }

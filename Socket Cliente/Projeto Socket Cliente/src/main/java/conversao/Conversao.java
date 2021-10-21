@@ -8,6 +8,18 @@ import modelo.Pessoa;
  */
 public class Conversao {
 
+    private Conversao() {
+
+    }
+    private static Conversao instance;
+
+    public synchronized static Conversao getInstance() {
+        if (instance == null) {
+            instance = new Conversao();
+        }
+        return instance;
+    }
+
     public String padronizaInsercao(String variavel, int tamanho) {
         if (variavel.length() > tamanho) {
             variavel = variavel.substring(0, tamanho);

@@ -14,6 +14,18 @@ import java.net.Socket;
  */
 public class Servidor {
 
+    private Servidor() {
+
+    }
+    private static Servidor instance;
+
+    public synchronized static Servidor getInstance() {
+        if (instance == null) {
+            instance = new Servidor();
+        }
+        return instance;
+    }
+
     private static Socket socket;
     private static ServerSocket serverSocket;
     private static Controle controle = new Controle();
@@ -26,17 +38,17 @@ public class Servidor {
         while (true) {
             clienteOn();
         }
-        
+
     }
 
     public static void clienteOn() throws IOException {
         socket = serverSocket.accept();
         System.out.println("CLIENTE CONECTADO");
 
-        InputStreamReader in = new InputStreamReader(socket.getInputStream());
-        BufferedReader bf = new BufferedReader(in);
-        String str = bf.readLine();
-        trataDados(str);
+        InputStreamReader input = new InputStreamReader(socket.getInputStream());
+        BufferedReader buffer = new BufferedReader(input);
+        String dados = buffer.readLine();
+        trataDados(dados);
     }
 
     public static void sendData(String msg) throws IOException {

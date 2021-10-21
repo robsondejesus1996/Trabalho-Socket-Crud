@@ -11,6 +11,18 @@ import java.util.Scanner;
  */
 public class PessoaControle {
 
+    private PessoaControle() {
+
+    }
+    private static PessoaControle instance;
+
+    public synchronized static PessoaControle getInstance() {
+        if (instance == null) {
+            instance = new PessoaControle();
+        }
+        return instance;
+    }
+
     Pessoa pessoa;
     Conversao utils;
     Scanner in;
@@ -18,7 +30,7 @@ public class PessoaControle {
 
     public String pessoaInserir() throws IOException {
         pessoa = new Pessoa();
-        utils = new Conversao();
+        utils = Conversao.getInstance();
         in = new Scanner(System.in);
 
         System.out.println("INFORME O NOME DA PESSOA: ");
@@ -55,7 +67,7 @@ public class PessoaControle {
 
     public String pessoaAtualizar() {
         pessoa = new Pessoa();
-        utils = new Conversao();
+        utils = Conversao.getInstance();
         in = new Scanner(System.in);
 
         System.out.println("INFORME O CPF DA PESSOA: ");

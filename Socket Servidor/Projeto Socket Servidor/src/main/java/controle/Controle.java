@@ -1,6 +1,5 @@
 package controle;
 
-
 import modelo.Departamento;
 import modelo.Pessoa;
 import conversao.Conversao;
@@ -12,14 +11,16 @@ import java.util.List;
  * @author Robson de Jesus
  */
 public class Controle {
+
     
+
+
     private Conversao con;
     private Pessoa pessoa;
     private Departamento departamento;
     private List<Pessoa> listaPessoas = new ArrayList<>();
     private List<Departamento> listaDepartamentos = new ArrayList();
-    
-    
+
     public void base() {
         System.out.println("BASE DE DADOS INICIADA...");
         Departamento departamento = new Departamento();
@@ -31,9 +32,9 @@ public class Controle {
         departamento2.setMatricula("222");
         departamento2.setEndereco("Rua da Qualidade");
         Pessoa pessoa = new Pessoa();
-        pessoa.setNome("Fábio Frare");
+        pessoa.setNome("Maria tereza de Jesus");
         pessoa.setCpf("123");
-        pessoa.setEndereco("Rua 7 de setembro");
+        pessoa.setEndereco("Rua da casa");
         listaPessoas.add(pessoa);
         listaDepartamentos.add(departamento);
         listaDepartamentos.add(departamento2);
@@ -46,7 +47,7 @@ public class Controle {
 
     public String adicionarPessoas(String mensagem) {
         pessoa = new Pessoa();
-        con = new Conversao();
+        con = Conversao.getInstance();
 
         pessoa = con.dadosPessoa(mensagem);
         listaPessoas.add(pessoa);
@@ -56,7 +57,7 @@ public class Controle {
 
     public String adicionarDepartamentos(String mensagem) {
         this.departamento = new Departamento();
-        con = new Conversao();
+        con = Conversao.getInstance();
 
         departamento = con.dadosDepartamento(mensagem);
         listaDepartamentos.add(departamento);
@@ -83,10 +84,10 @@ public class Controle {
     public String listAllPessoas() {
         String pessoas = "";
         for (var pessoa : listaPessoas) {
-            pessoas += "Nome: "     + pessoa.getNome()
-                    + " CPF: "      + pessoa.getCpf()
+            pessoas += "Nome: " + pessoa.getNome()
+                    + " CPF: " + pessoa.getCpf()
                     + " Endereço: " + pessoa.getEndereco()
-                    + "Departamentos: "   + pessoa.getMatriculaDepartamento()
+                    + " Departamentos: " + pessoa.getMatriculaDepartamento()
                     + " || ";
         }
         return pessoas;
@@ -96,7 +97,7 @@ public class Controle {
         String pessoas = "";
         for (var pessoa : listaPessoas) {
             if (pessoa.getCpf().equals(cpf)) {
-                pessoas += "Nome: " + pessoa.getNome() + " CPF: " + pessoa.getCpf() + "Endereço: " + pessoa.getEndereco();
+                pessoas += " Nome: " + pessoa.getNome() + " CPF: " + pessoa.getCpf() + " Endereço: " + pessoa.getEndereco();
                 return pessoas;
             }
         }
@@ -117,7 +118,7 @@ public class Controle {
     public String ListaEmpresas() {
         String departamentos = "";
         for (var dep : listaDepartamentos) {
-            departamentos += "Nome: " + dep.getNome() + " Matricula: " + dep.getMatricula()+ " Endereço: " + dep.getEndereco() + " || ";
+            departamentos += " Nome: " + dep.getNome() + " Matricula: " + dep.getMatricula() + " Endereço: " + dep.getEndereco() + " || ";
         }
         return departamentos;
     }
@@ -126,7 +127,7 @@ public class Controle {
         String departamentos = "";
         for (var dep : listaDepartamentos) {
             if (dep.getMatricula().equals(matricula)) {
-                departamentos += "Nome: " + dep.getNome() + " Matricula: " + dep.getMatricula()+ "Endereço: " + dep.getEndereco();
+                departamentos += " Nome: " + dep.getNome() + " Matricula: " + dep.getMatricula() + " Endereço: " + dep.getEndereco();
                 return departamentos;
             }
         }
@@ -146,7 +147,7 @@ public class Controle {
     }
 
     public String pessoaAtualizar(String mensagem) {
-        con = new Conversao();
+        con = Conversao.getInstance();
         String cpf = con.reverteConversao(mensagem.substring(7, 18));
         pessoa = con.dadosPessoa(mensagem);
         for (int i = 0; i < listaPessoas.size(); i++) {
@@ -159,7 +160,7 @@ public class Controle {
     }
 
     public String departamentoAtualizar(String mensagem) {
-        con = new Conversao();
+        con = Conversao.getInstance();
         String matricula = con.reverteConversao(mensagem.substring(7, 21));
         departamento = con.dadosDepartamento(mensagem);
         for (int i = 0; i < listaDepartamentos.size(); i++) {
@@ -171,5 +172,4 @@ public class Controle {
         return "DEPARTAMENTO NÃO PODE SER ATUALIZADO!";
     }
 
-    
 }
