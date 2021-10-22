@@ -32,23 +32,14 @@ public class Conversao {
 
     public Pessoa converteStringPessoa(String msg) {
         Pessoa pessoa = new Pessoa();
-
         String nome = msg.substring(18, 117);
         pessoa.setNome(reverteConversao(nome));
-//        System.out.println("\nnome: " +pessoa.getNome());
-
         String cpf = msg.substring(7, 17);
         pessoa.setCpf(reverteConversao(cpf));
-//        System.out.println("\ncpf: " +pessoa.getCpf());
-
         String endereco = msg.substring(118, 217);
         pessoa.setEndereco(reverteConversao(endereco));
-//        System.out.println("\nendereço: " +pessoa.getEndereco());
-
         String cnpjEmpresa = msg.substring(218, 231);
         pessoa.setMatriculaDepartamento(reverteConversao(cnpjEmpresa));
-//        System.out.println("\ncpg: " +pessoa.getCnpjEmpresa());
-
         return pessoa;
     }
 

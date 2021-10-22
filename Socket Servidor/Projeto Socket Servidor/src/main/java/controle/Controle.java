@@ -73,13 +73,6 @@ public class Controle {
         this.listaPessoas = dadosPessoas;
     }
 
-    public List<Departamento> getDadosEmpresas() {
-        return listaDepartamentos;
-    }
-
-    public void setDadosEmpresas(List<Departamento> dadosEmpresas) {
-        this.listaDepartamentos = dadosEmpresas;
-    }
 
     public String listAllPessoas() {
         String pessoas = "";
@@ -115,7 +108,7 @@ public class Controle {
         return "PESSOA NÃO ENCONTRADA!";
     }
 
-    public String ListaEmpresas() {
+    public String ListaDepartamentos() {
         String departamentos = "";
         for (var dep : listaDepartamentos) {
             departamentos += " Nome: " + dep.getNome() + " Matricula: " + dep.getMatricula() + " Endereço: " + dep.getEndereco() + " || ";
@@ -139,7 +132,6 @@ public class Controle {
             System.out.println("deletar Departamento: " + listaDepartamentos.get(i).getMatricula());
             if (listaDepartamentos.get(i).getMatricula().equalsIgnoreCase(matricula)) {
                 listaDepartamentos.remove(listaDepartamentos.get(i));
-//                System.out.println("empresas: " + dadosEmpresas.get(i).getNome());
                 return "DEPARTAMENTO EXCLUÍDO COM SUCESSO!";
             }
         }

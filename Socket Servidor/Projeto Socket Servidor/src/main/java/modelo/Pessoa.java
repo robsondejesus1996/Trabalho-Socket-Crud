@@ -47,7 +47,7 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return "[ Nome: " + nome + " CPF: " + cpf + " Endereco: " + endereco + " CNPJ Empresa: " + matriculaDepartamento + ']';
+        return "[ Nome: " + nome + " CPF: " + cpf + " Endereco: " + endereco + " Matricula departamento: " + matriculaDepartamento + ']';
     }
 
 }

@@ -23,36 +23,36 @@ public class DepartamentoControle {
         return instance;
     }
 
-    Departamento empresa;
-    Conversao utils;
-    Scanner in;
+    Departamento departamento;
+    Conversao conv;
+    Scanner entrada;
     String mensagem;
 
     public String departamentoInserir() throws IOException {
-        empresa = new Departamento();
-        utils = Conversao.getInstance();
-        in = new Scanner(System.in);
+        departamento = new Departamento();
+        conv = Conversao.getInstance();
+        entrada = new Scanner(System.in);
 
         System.out.println("INFORME O NOME DO DEPARTAMENTO: ");
-        String nomeDep = in.nextLine();
-        empresa.setNome(utils.padronizaInsercao(nomeDep, 100));
+        String nomeDep = entrada.nextLine();
+        departamento.setNome(conv.padronizaInsercao(nomeDep, 100));
 
         System.out.println("INFORME A MATRICULA DO DEPARTAMENTO: ");
-        String matricula = in.nextLine();
-        empresa.setMatricula(utils.padronizaInsercao(matricula, 14));
+        String matricula = entrada.nextLine();
+        departamento.setMatricula(conv.padronizaInsercao(matricula, 14));
 
         System.out.println("INFORME O ENDEREÇO DO DEPARTAMENTO: ");
-        String departamentoEndereco = in.nextLine();
-        empresa.setEndereco(utils.padronizaInsercao(departamentoEndereco, 100));
+        String departamentoEndereco = entrada.nextLine();
+        departamento.setEndereco(conv.padronizaInsercao(departamentoEndereco, 100));
 
         String cpfPessoa = "*";
-        empresa.setCpfPessoa(utils.padronizaInsercao(cpfPessoa, 11));
+        departamento.setCpfPessoa(conv.padronizaInsercao(cpfPessoa, 11));
 
         mensagem = "2INSERT";               //   7 bytes
-        mensagem += empresa.getMatricula();      //  14 bytes
-        mensagem += empresa.getNome();      // 100 bytes
-        mensagem += empresa.getEndereco();  // 100 bytes 
-        mensagem += empresa.getCpfPessoa(); //  11 bytes  => 232 bytes
+        mensagem += departamento.getMatricula();      //  14 bytes
+        mensagem += departamento.getNome();      // 100 bytes
+        mensagem += departamento.getEndereco();  // 100 bytes 
+        mensagem += departamento.getCpfPessoa(); //  11 bytes  => 232 bytes
 
         System.out.println("Controler pessoa insert " + mensagem);
 
@@ -60,30 +60,30 @@ public class DepartamentoControle {
     }
 
     public String departamentoAtualizar() {
-        empresa = new Departamento();
-        utils = Conversao.getInstance();
-        in = new Scanner(System.in);
+        departamento = new Departamento();
+        conv = Conversao.getInstance();
+        entrada = new Scanner(System.in);
 
         System.out.println("INFORME A MATRICULA DO DEPARTAMENTO:  ");
-        String matricula = in.nextLine();
-        empresa.setMatricula(utils.padronizaInsercao(matricula, 14));
+        String matricula = entrada.nextLine();
+        departamento.setMatricula(conv.padronizaInsercao(matricula, 14));
 
         System.out.println("INFORME O NOME DO DEPARTAMENTO: ");
-        String nomeDep = in.nextLine();
-        empresa.setNome(utils.padronizaInsercao(nomeDep, 100));
+        String nomeDep = entrada.nextLine();
+        departamento.setNome(conv.padronizaInsercao(nomeDep, 100));
 
         System.out.println("INFORME O ENDEREÇO DO DEPARTAMENTO: ");
-        String departamentoEndereco = in.nextLine();
-        empresa.setEndereco(utils.padronizaInsercao(departamentoEndereco, 100));
+        String departamentoEndereco = entrada.nextLine();
+        departamento.setEndereco(conv.padronizaInsercao(departamentoEndereco, 100));
 
         String cpfPessoa = "*";
-        empresa.setCpfPessoa(utils.padronizaInsercao(cpfPessoa, 11));
+        departamento.setCpfPessoa(conv.padronizaInsercao(cpfPessoa, 11));
 
         mensagem = "2UPDATE";                //   7 bytes
-        mensagem += empresa.getMatricula();       //  11 bytes
-        mensagem += empresa.getNome();       // 100 bytes
-        mensagem += empresa.getEndereco();   // 100 bytes 
-        mensagem += empresa.getCpfPessoa();  //  14 bytes  => 232 bytes
+        mensagem += departamento.getMatricula();       //  11 bytes
+        mensagem += departamento.getNome();       // 100 bytes
+        mensagem += departamento.getEndereco();   // 100 bytes 
+        mensagem += departamento.getCpfPessoa();  //  14 bytes  => 232 bytes
 
         return mensagem;
     }

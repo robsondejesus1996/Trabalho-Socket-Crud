@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class Clientes {
 
     private static final int porta = 80;
-    private static final String address = "localhost";
+    private static final String address = "192.168.1.5";
 
     private static PessoaControle controleP;
     private static DepartamentoControle controleDep;
@@ -65,12 +65,11 @@ public class Clientes {
 
         
         controleP = PessoaControle.getInstance();
-        
         controleDep = DepartamentoControle.getInstance();
 
         String mensagem = "";
         switch (operacao) {
-            case 1: // INSERT
+            case 1: 
                 if (modelo == 1) {
                     mensagem = controleP.pessoaInserir();
                     sendData(mensagem);
@@ -83,7 +82,7 @@ public class Clientes {
                 }
                 opcoes();
                 break;
-            case 2: // UPDATE
+            case 2: 
                 if (modelo == 1) {
                     mensagem = controleP.pessoasListAll();
                     sendData(mensagem);
@@ -102,11 +101,11 @@ public class Clientes {
                 }
                 opcoes();
                 break;
-            case 3: // GET
+            case 3: 
                 if (modelo == 1) {
                     mensagem = controleP.pessoaBuscar();
                     sendData(mensagem);
-                    receiveData(); // retorno da pessoa
+                    receiveData(); 
                 }
                 if (modelo == 2) {
                     mensagem = controleDep.departamentoBusca();
@@ -115,7 +114,7 @@ public class Clientes {
                 }
                 opcoes();
                 break;
-            case 4: //DELETE
+            case 4:
                 if (modelo == 1) {
                     mensagem = controleP.pessoaExcluir();
                     sendData(mensagem);
@@ -128,7 +127,7 @@ public class Clientes {
                 }
                 opcoes();
                 break;
-            case 5: //LIST
+            case 5: 
                 if (modelo == 1) {
                     mensagem = controleP.pessoasListAll();
                     sendData(mensagem);
@@ -141,7 +140,7 @@ public class Clientes {
                 }
                 opcoes();
                 break;
-            case 6: // SAIR DA APLICAÇÃO
+            case 6: 
                 entrada.close();
                 socket.close();
                 break;
@@ -151,6 +150,4 @@ public class Clientes {
                 break;
         }
     }
-
-
 }

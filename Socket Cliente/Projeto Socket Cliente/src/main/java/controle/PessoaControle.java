@@ -24,37 +24,37 @@ public class PessoaControle {
     }
 
     Pessoa pessoa;
-    Conversao utils;
-    Scanner in;
+    Conversao conv;
+    Scanner entrada;
     String mensagem;
 
     public String pessoaInserir() throws IOException {
         pessoa = new Pessoa();
-        utils = Conversao.getInstance();
-        in = new Scanner(System.in);
+        conv = Conversao.getInstance();
+        entrada = new Scanner(System.in);
 
         System.out.println("INFORME O NOME DA PESSOA: ");
-        String nomePessoa = in.nextLine();
-        pessoa.setNome(utils.padronizaInsercao(nomePessoa, 100));
+        String nomePessoa = entrada.nextLine();
+        pessoa.setNome(conv.padronizaInsercao(nomePessoa, 100));
 
         System.out.println("INFORME O CPF DA PESSOA: ");
-        String cpf = in.nextLine();
-        pessoa.setCpf(utils.padronizaInsercao(cpf, 11));
+        String cpf = entrada.nextLine();
+        pessoa.setCpf(conv.padronizaInsercao(cpf, 11));
 
         System.out.println("INFORME O ENDEREÇO DA PESSOA: ");
-        String enderecoPessoa = in.nextLine();
-        pessoa.setEndereco(utils.padronizaInsercao(enderecoPessoa, 100));
+        String enderecoPessoa = entrada.nextLine();
+        pessoa.setEndereco(conv.padronizaInsercao(enderecoPessoa, 100));
 
         System.out.println("CADASTRAR PESSOA COM O DEPARTAMENTO ? (S/N)");
-        String opcao = in.nextLine();
+        String opcao = entrada.nextLine();
         String matricula = "";
         if (opcao.equalsIgnoreCase("s")) {
             System.out.println("INFORME A MATRICULA DO DEPARTAMENTO ");
-            matricula = in.nextLine();
+            matricula = entrada.nextLine();
         } else {
             matricula = "*";
         }
-        pessoa.setMatriculaDepartamento(utils.padronizaInsercao(matricula, 14));
+        pessoa.setMatriculaDepartamento(conv.padronizaInsercao(matricula, 14));
 
         mensagem = "1INSERT";                 //   7 bytes
         mensagem += pessoa.getCpf();          //  11 bytes
@@ -67,23 +67,23 @@ public class PessoaControle {
 
     public String pessoaAtualizar() {
         pessoa = new Pessoa();
-        utils = Conversao.getInstance();
-        in = new Scanner(System.in);
+        conv = Conversao.getInstance();
+        entrada = new Scanner(System.in);
 
         System.out.println("INFORME O CPF DA PESSOA: ");
-        String cpf = in.nextLine();
-        pessoa.setCpf(utils.padronizaInsercao(cpf, 11));
+        String cpf = entrada.nextLine();
+        pessoa.setCpf(conv.padronizaInsercao(cpf, 11));
 
         System.out.println("INFORME O NOME DA PESSOA:  ");
-        String nomePessoa = in.nextLine();
-        pessoa.setNome(utils.padronizaInsercao(nomePessoa, 100));
+        String nomePessoa = entrada.nextLine();
+        pessoa.setNome(conv.padronizaInsercao(nomePessoa, 100));
 
         System.out.println("INFORME O ENDEREÇO DA PESSOA: ");
-        String enderecoPessoa = in.nextLine();
-        pessoa.setEndereco(utils.padronizaInsercao(enderecoPessoa, 100));
+        String enderecoPessoa = entrada.nextLine();
+        pessoa.setEndereco(conv.padronizaInsercao(enderecoPessoa, 100));
 
         String matricula = "*";
-        pessoa.setMatriculaDepartamento(utils.padronizaInsercao(matricula, 14));
+        pessoa.setMatriculaDepartamento(conv.padronizaInsercao(matricula, 14));
 
         mensagem = "1UPDATE";                 //   7 bytes
         mensagem += pessoa.getCpf();          //  11 bytes

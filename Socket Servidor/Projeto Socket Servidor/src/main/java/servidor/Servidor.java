@@ -118,13 +118,13 @@ public class Servidor {
                     clienteOn();
                 }
                 if (modelo.equalsIgnoreCase("2")) {
-                    mensagem = controle.ListaEmpresas();
+                    mensagem = controle.ListaDepartamentos();
                     sendData(mensagem);
                     clienteOn();
                 }
                 break;
             default:
-                System.out.println("Default switch case.");
+                System.out.println("OPÇÃO INVALIDA!");
                 break;
         }
     }
