@@ -11,6 +11,12 @@ import java.util.Scanner;
  */
 public class DepartamentoControle {
     
+    
+    private Departamento departamento;
+    private Conversao conv;
+    private Scanner entrada;
+    private String mensagem;
+    
     private DepartamentoControle(){
         
     }
@@ -23,10 +29,7 @@ public class DepartamentoControle {
         return instance;
     }
 
-    Departamento departamento;
-    Conversao conv;
-    Scanner entrada;
-    String mensagem;
+    
 
     public String departamentoInserir() throws IOException {
         departamento = new Departamento();

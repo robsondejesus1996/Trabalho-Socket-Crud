@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class Clientes {
 
     private static final int porta = 80;
-    private static final String address = "192.168.1.5";
+    private static final String address = "localhost";
 
     private static PessoaControle controleP;
     private static DepartamentoControle controleDep;
@@ -32,10 +32,10 @@ public class Clientes {
 
     }
 
-    public static void sendData(String msg) throws IOException {
+    public static void sendData(String mensagem) throws IOException {
         socket = new Socket(address, porta);
         PrintWriter escrever = new PrintWriter(socket.getOutputStream());
-        escrever.println(msg);
+        escrever.println(mensagem);
         escrever.flush();
     }
 

@@ -21,16 +21,6 @@ public class Conversao {
         return instance;
     }
 
-    public String insercao(String variavel, int tamanho) {
-        if (variavel.length() > tamanho) {
-            variavel = variavel.substring(0, tamanho);
-        }
-        variavel = String.format("%" + tamanho + "s", variavel);
-        variavel = variavel.replaceAll(" ", "*");
-
-        return variavel;
-    }
-
     public Pessoa dadosPessoa(String mensagem) {
         Pessoa pessoa = new Pessoa();
         String nome = mensagem.substring(18, 118);

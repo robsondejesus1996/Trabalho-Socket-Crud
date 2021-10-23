@@ -11,6 +11,11 @@ import java.util.Scanner;
  */
 public class PessoaControle {
 
+    private Pessoa pessoa;
+    private Conversao conv;
+    private Scanner entrada;
+    private String mensagem;
+
     private PessoaControle() {
 
     }
@@ -22,11 +27,6 @@ public class PessoaControle {
         }
         return instance;
     }
-
-    Pessoa pessoa;
-    Conversao conv;
-    Scanner entrada;
-    String mensagem;
 
     public String pessoaInserir() throws IOException {
         pessoa = new Pessoa();
