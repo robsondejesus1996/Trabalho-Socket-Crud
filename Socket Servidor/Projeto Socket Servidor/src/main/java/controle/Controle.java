@@ -12,9 +12,6 @@ import java.util.List;
  */
 public class Controle {
 
-    
-
-
     private Conversao con;
     private Pessoa pessoa;
     private Departamento departamento;
@@ -90,7 +87,7 @@ public class Controle {
         String pessoas = "";
         for (var pessoa : listaPessoas) {
             if (pessoa.getCpf().equals(cpf)) {
-                pessoas += " Nome: " + pessoa.getNome() + " CPF: " + pessoa.getCpf() + " Endereço: " + pessoa.getEndereco();
+                pessoas += " Nome: " + pessoa.getNome() + " CPF: " + pessoa.getCpf() + " Endereço: " + pessoa.getEndereco() + " Departamento: "+ pessoa.getMatriculaDepartamento();
                 return pessoas;
             }
         }

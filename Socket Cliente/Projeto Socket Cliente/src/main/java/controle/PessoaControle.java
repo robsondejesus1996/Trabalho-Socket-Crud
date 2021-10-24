@@ -56,11 +56,11 @@ public class PessoaControle {
         }
         pessoa.setMatriculaDepartamento(conv.padronizaInsercao(matricula, 14));
 
-        mensagem = "1INSERT";                 //   7 bytes
-        mensagem += pessoa.getCpf();          //  11 bytes
-        mensagem += pessoa.getNome();         // 100 bytes
-        mensagem += pessoa.getEndereco();     // 100 bytes 
-        mensagem += pessoa.getMatriculaDepartamento();  //  14 bytes  => 232 bytes
+        mensagem = "1INSERT";                 
+        mensagem += pessoa.getCpf();          
+        mensagem += pessoa.getNome();        
+        mensagem += pessoa.getEndereco();     
+        mensagem += pessoa.getMatriculaDepartamento();  
 
         return mensagem;
     }
@@ -85,11 +85,11 @@ public class PessoaControle {
         String matricula = "*";
         pessoa.setMatriculaDepartamento(conv.padronizaInsercao(matricula, 14));
 
-        mensagem = "1UPDATE";                 //   7 bytes
-        mensagem += pessoa.getCpf();          //  11 bytes
-        mensagem += pessoa.getNome();         // 100 bytes
-        mensagem += pessoa.getEndereco();     // 100 bytes 
-        mensagem += pessoa.getMatriculaDepartamento();  //  14 bytes  => 232 bytes
+        mensagem = "1UPDATE";                 
+        mensagem += pessoa.getCpf();          
+        mensagem += pessoa.getNome();         
+        mensagem += pessoa.getEndereco();     
+        mensagem += pessoa.getMatriculaDepartamento();  
 
         return mensagem;
     }

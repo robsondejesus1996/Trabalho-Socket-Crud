@@ -51,13 +51,13 @@ public class DepartamentoControle {
         String cpfPessoa = "*";
         departamento.setCpfPessoa(conv.padronizaInsercao(cpfPessoa, 11));
 
-        mensagem = "2INSERT";               //   7 bytes
-        mensagem += departamento.getMatricula();      //  14 bytes
-        mensagem += departamento.getNome();      // 100 bytes
-        mensagem += departamento.getEndereco();  // 100 bytes 
-        mensagem += departamento.getCpfPessoa(); //  11 bytes  => 232 bytes
+        mensagem = "2INSERT";               
+        mensagem += departamento.getMatricula();      
+        mensagem += departamento.getNome();      
+        mensagem += departamento.getEndereco();  
+        mensagem += departamento.getCpfPessoa(); 
 
-        System.out.println("Controler pessoa insert " + mensagem);
+        
 
         return mensagem;
     }
@@ -82,11 +82,11 @@ public class DepartamentoControle {
         String cpfPessoa = "*";
         departamento.setCpfPessoa(conv.padronizaInsercao(cpfPessoa, 11));
 
-        mensagem = "2UPDATE";                //   7 bytes
-        mensagem += departamento.getMatricula();       //  11 bytes
-        mensagem += departamento.getNome();       // 100 bytes
-        mensagem += departamento.getEndereco();   // 100 bytes 
-        mensagem += departamento.getCpfPessoa();  //  14 bytes  => 232 bytes
+        mensagem = "2UPDATE";                
+        mensagem += departamento.getMatricula();      
+        mensagem += departamento.getNome();       
+        mensagem += departamento.getEndereco();   
+        mensagem += departamento.getCpfPessoa();  
 
         return mensagem;
     }
